@@ -1,18 +1,15 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
-  </div>
+  <wish-list v-if="isAuthenticated" />
+  <login-hero v-else />
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
+import { mapGetters } from 'vuex';
+import LoginHero from '@/components/LoginHero.vue';
+import WishList from '@/components/WishList.vue';
 
 export default {
-  name: "Home",
-  components: {
-    HelloWorld
-  }
+  components: { LoginHero, WishList },
+  computed: mapGetters(['isAuthenticated'])
 };
 </script>
