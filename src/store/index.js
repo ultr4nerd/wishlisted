@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 import auth from './modules/auth';
+import wishes from './modules/wishes';
 
 Vue.use(Vuex);
 
@@ -21,5 +22,5 @@ export default new Vuex.Store({
       state.loading = loading;
     }
   },
-  modules: [auth]
+  modules: { auth, wishes }
 });

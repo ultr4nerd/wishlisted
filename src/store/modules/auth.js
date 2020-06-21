@@ -35,9 +35,11 @@ const actions = {
     } finally {
     }
   },
-  changeAuthState({ commit }, user) {
+  changeAuthState({ commit, dispatch }, user) {
     commit('SET_USER', user);
-    if (!user) {
+    if (user) {
+      dispatch('fetchWishes');
+    } else {
       commit('SET_TOKEN', null);
     }
   }
