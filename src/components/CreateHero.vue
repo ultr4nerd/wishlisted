@@ -28,9 +28,12 @@
             />
           </b-field>
           <div class="buttons">
-            <b-button type="is-dark" @click="getClipboardData"
-              >Pegar desde el portapapeles</b-button
-            >
+            <b-button type="is-dark" :disabled="isLoading" @click="searchWish">
+              Buscar
+            </b-button>
+            <b-button :disabled="isLoading" @click="getClipboardData">
+              Pegar desde el portapapeles
+            </b-button>
           </div>
         </div>
       </div>
@@ -61,13 +64,16 @@
               placeholder="https://www.mideseo.com/articulo"
               :loading="isLoading"
               :value="wishUrl"
-              @input="searchWish"
+              @input="setWishUrl"
             />
           </b-field>
           <div class="buttons">
-            <b-button type="is-dark" @click="getClipboardData"
-              >Pegar desde el portapapeles</b-button
-            >
+            <b-button type="is-dark" :disabled="isLoading" @click="searchWish">
+              Buscar
+            </b-button>
+            <b-button :disabled="isLoading" @click="getClipboardData">
+              Pegar desde el portapapeles
+            </b-button>
           </div>
         </div>
       </div>
@@ -81,10 +87,10 @@ import { mapGetters, mapActions } from 'vuex';
 export default {
   computed: mapGetters(['isLoading', 'wish', 'wishUrl']),
   methods: {
-    ...mapActions(['searchWish']),
+    ...mapActions(['searchWish', 'setWishUrl']),
     async getClipboardData() {
       const url = await navigator.clipboard.readText();
-      this.$store.dispatch('searchWish', url);
+      this.setWishUrl(url);
     }
   }
 };

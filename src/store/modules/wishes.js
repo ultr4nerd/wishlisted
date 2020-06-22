@@ -14,7 +14,8 @@ const getters = {
 };
 
 const actions = {
-  async searchWish({ dispatch, commit }, url) {
+  async searchWish({ dispatch, commit, state }) {
+    const url = state.wishUrl;
     if (url) {
       dispatch('setLoading', true);
       try {
@@ -51,6 +52,9 @@ const actions = {
   async deleteWish({ dispatch }, wishId) {
     await wishesService.deleteWish(wishId);
     dispatch('fetchWishes');
+  },
+  setWishUrl({ commit }, url) {
+    commit('SET_WISH_URL', url);
   },
   removeWish({ commit }) {
     commit('SET_WISH', null);
