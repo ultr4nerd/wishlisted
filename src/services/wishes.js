@@ -1,5 +1,6 @@
 import axios from 'axios';
 import * as firebase from 'firebase';
+import 'firebase/firestore';
 
 const client = axios.create({
   baseURL: 'https://wishlisted.herokuapp.com/',

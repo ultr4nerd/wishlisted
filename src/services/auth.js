@@ -1,4 +1,5 @@
 import * as firebase from 'firebase/app';
+import 'firebase/auth';
 
 async function login() {
   const provider = new firebase.auth.GoogleAuthProvider();

@@ -5,7 +5,6 @@ import App from './App.vue';
 import router from './router';
 import store from './store';
 import 'firebase/auth';
-import 'firebase/firestore';
 import 'firebase/analytics';
 import 'buefy/dist/buefy.css';
 
