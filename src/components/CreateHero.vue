@@ -31,7 +31,6 @@
             <b-button type="is-dark" @click="getClipboardData"
               >Pegar desde el portapapeles</b-button
             >
-            <b-button v-show="wish" tag="a" href="#wish">Ver Deseo</b-button>
           </div>
         </div>
       </div>

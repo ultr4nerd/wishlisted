@@ -3,7 +3,7 @@
     <div class="column">
       <create-hero />
     </div>
-    <div id="wish" class="column wish">
+    <div class="column wish">
       <div class="container">
         <wish v-if="wish" :wish="wish" :create-buttons="true" />
         <wish-loader v-show="isLoading" />
@@ -29,11 +29,11 @@ html {
   scroll-behavior: smooth;
 }
 
-#wish {
+.wish {
   margin: auto 0;
 }
 
-#wish .container {
+.wish .container {
   padding-left: 40px;
   padding-right: 60px;
 }
