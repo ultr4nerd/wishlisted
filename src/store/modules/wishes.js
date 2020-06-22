@@ -40,9 +40,10 @@ const actions = {
     commit('SET_WISHES', wishes);
     dispatch('setLoading', false);
   },
-  async createWish({ rootState, state, dispatch }) {
+  async createWish({ rootState, state, dispatch, commit }) {
     await wishesService.createWish(state.wish, rootState.auth.user.uid);
     router.push({ name: 'home' });
+    commit('SET_WISH', null);
     dispatch('fetchWishes');
   },
   async deleteWish({ dispatch }, wishId) {
