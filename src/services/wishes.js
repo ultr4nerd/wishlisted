@@ -22,14 +22,10 @@ async function getWishes(userUid) {
     .where('user', '==', userUid)
     .get();
 
-  // snapshot.forEach(function(doc) {
-  //   console.log(doc.id, ' => ', doc.data());
-  // });
   return snapshot.docs.map(doc => ({
     id: doc.id,
     ...doc.data()
   }));
-
 }
 
 async function createWish(wish, userUid) {
@@ -40,4 +36,12 @@ async function createWish(wish, userUid) {
   });
 }
 
-export default { searchWish, createWish, getWishes };
+async function deleteWish(wishId) {
+  const db = firebase.firestore();
+  await db
+    .collection('wishes')
+    .doc(wishId)
+    .delete();
+}
+
+export default { searchWish, getWishes, createWish, deleteWish };

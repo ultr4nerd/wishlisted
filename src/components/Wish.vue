@@ -23,7 +23,14 @@
             <b-button type="is-dark" @click="createWish">Guardar</b-button>
           </a>
           <a class="level-item">
-            <b-button @click="removeWish">Quitar</b-button>
+            <b-button @click="removeWish">Remover</b-button>
+          </a>
+        </div>
+      </nav>
+      <nav v-else class="level is-mobile">
+        <div class="level-left">
+          <a class="level-item">
+            <b-button @click="deleteWish(wish.id)">Quitar</b-button>
           </a>
         </div>
       </nav>
@@ -45,6 +52,6 @@ export default {
       default: false
     }
   },
-  methods: mapActions(['createWish', 'removeWish'])
+  methods: mapActions(['createWish', 'removeWish', 'deleteWish'])
 };
 </script>

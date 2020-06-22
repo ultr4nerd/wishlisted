@@ -45,6 +45,10 @@ const actions = {
     router.push({ name: 'home' });
     dispatch('fetchWishes');
   },
+  async deleteWish({ dispatch }, wishId) {
+    await wishesService.deleteWish(wishId);
+    dispatch('fetchWishes');
+  },
   removeWish({ commit }) {
     commit('SET_WISH', null);
     commit('SET_WISH_URL', null);
